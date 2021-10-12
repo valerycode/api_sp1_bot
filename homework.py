@@ -70,7 +70,8 @@ def main():
 
     while True:
         try:
-            new_homework = get_homework_statuses(0)
+            new_homework = get_homework_statuses(current_timestamp)
+            send_message("Я работаю через Heroku test", bot_client)
             if new_homework.get('homeworks'):
                 message = parse_homework_status(
                     new_homework.get('homeworks')[0])

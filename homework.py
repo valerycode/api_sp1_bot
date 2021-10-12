@@ -65,14 +65,12 @@ def send_message(message, bot_client):
 
 def main():
     bot_client = telegram.Bot(token=TELEGRAM_TOKEN)
-    send_message("Я работаю через Heroku test", bot_client)
     logging.debug(BOT_LAUNCH)
     current_timestamp = int(time.time())
 
     while True:
         try:
             new_homework = get_homework_statuses(current_timestamp)
-            send_message("Я работаю через Heroku test", bot_client)
             if new_homework.get('homeworks'):
                 message = parse_homework_status(
                     new_homework.get('homeworks')[0])

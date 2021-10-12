@@ -24,7 +24,7 @@ https://practicum.yandex.ru/api/user_api/homework_statuses/
 
 Токен можно получить по адресу: https://oauth.yandex.ru/authorize?response_type=token&client_id=1d0b9dd4d652455a9eb710d450ff456a
 
-#Пример запроса
+### Пример запроса
 import requests
 
 url = 'https://practicum.yandex.ru/api/user_api/homework_statuses/'
@@ -37,7 +37,7 @@ homework_statuses = requests.get(url, headers=headers, params=payload)
 
 print(homework_statuses.json())
 
-#Пример ответа API
+### Пример ответа API
 В ответ на правильно сформированный запрос API Практикум.Домашка
 пришлёт вам список домашних работ, статус которых изменился за
 запрошенный период:

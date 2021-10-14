@@ -25,58 +25,43 @@ https://practicum.yandex.ru/api/user_api/homework_statuses/
 Токен можно получить по адресу: https://oauth.yandex.ru/authorize?response_type=token&client_id=1d0b9dd4d652455a9eb710d450ff456a
 
 ### Пример запроса
+```
 import requests
 
 url = 'https://practicum.yandex.ru/api/user_api/homework_statuses/'
-
 headers = {'Authorization': f'OAuth {<ваш токен>}'}
-
 payload = {'from_date': <временная метка в формате Unix time>}.
-
 homework_statuses = requests.get(url, headers=headers, params=payload)
-
 print(homework_statuses.json())
+```
 
 ### Пример ответа API
 В ответ на правильно сформированный запрос API Практикум.Домашка
 пришлёт вам список домашних работ, статус которых изменился за
 запрошенный период:
-
+```
 {
  "homeworks":[
-
  {
  "id":123,
-
  "status":"rejected",
-
  "homework_name":"username__hw_python_oop.zip",
-
  "reviewer_comment":"Код не по PEP8, нужно исправить",
-
  "date_updated":"2020-02-11T16:42:47Z",
-
  "lesson_name":"Итоговый проект"
  },
-
  {
  "id":124,
-
  "status":"approved",
-
  "homework_name":"username__hw_python_oop.zip",
-
  "reviewer_comment":"Всё нравится",
-
  "date_updated":"2020-02-13T14:40:57Z",
-
  "lesson_name":"Итоговый проект"
  }
- 
 ],
 "current_date":1581604970
 }
-
+```
 Статус домашки (ключ status) может быть трёх типов:
 - reviewing: работа взята в ревью;
 - approved: ревью успешно пройдено;
